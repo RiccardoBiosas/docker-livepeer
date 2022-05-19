@@ -21,8 +21,8 @@ jobs:
       - name: docker build
         run: |
           cd geth-with-protocol
-          docker build -t livepeer/geth-with-livepeer-protocol:confluence .
+          docker build -t rbiosas/geth-with-livepeer-protocol:confluence .
 
       - name: docker push
         run: |
-          docker push livepeer/geth-with-livepeer-protocol:confluence
+          docker push rbiosas/geth-with-livepeer-protocol:confluence
