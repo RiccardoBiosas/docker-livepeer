@@ -12,6 +12,7 @@ jobs:
         run: |
           # docker login
           docker version
+          echo $DOCKER_USERNAME
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
       - name: Check out code
