@@ -10,20 +10,22 @@ sleep 1
 
 OPWD=$PWD
 cd $srcDir/protocol
+echo "yarn config set unsafe-perm true"
+yarn config set unsafe-perm true
 echo "yarn install"
 yarn install
-echo "yarn hardhat typechain"
-yarn hardhat typechain
+echo "npx hardhat typechain"
+npx hardhat typechain
 migrateCmd="yarn deploy --network gethDev"
 echo "Running $migrateCmd"
 eval $migrateCmd
-unpauseCmd="yarn hardhat unpause --network gethDev"
+unpauseCmd="npx hardhat unpause --network gethDev"
 echo "Running $unpauseCmd"
 eval $unpauseCmd
-controllerAddress=$(yarn hardhat print-contract-address --contract Controller --network gethDev)
+controllerAddress=$(npx hardhat print-contract-address --contract Controller --network gethDev)
 echo "Controller address: $controllerAddress"
 echo $controllerAddress > $gethRoot/controllerAddress
-migrateArbitrumLPTMockCmd="yarn hardhat deploy --tags ARBITRUM_LPT_DUMMIES --network gethDev"
+migrateArbitrumLPTMockCmd="npx hardhat deploy --tags ARBITRUM_LPT_DUMMIES --network gethDev"
 echo "Running $migrateArbitrumLPTMockCmd"
 eval $migrateArbitrumLPTMockCmd
 cd $OPWD
