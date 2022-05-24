@@ -25,7 +25,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./geth-with-protocol
-          platforms: linux/arm64
+          platforms: linux/arm64, linux/amd64
           push: true
           tags: rbiosas/geth-with-livepeer-protocol:confluence
 
