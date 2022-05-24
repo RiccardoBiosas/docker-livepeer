@@ -12,18 +12,18 @@ OPWD=$PWD
 cd $srcDir/protocol
 echo "yarn install"
 yarn install
-echo "npx hardhat typechain"
-npx hardhat typechain
+echo "yarn hardhat typechain"
+yarn hardhat typechain
 migrateCmd="yarn deploy --network gethDev"
 echo "Running $migrateCmd"
 eval $migrateCmd
-unpauseCmd="npx hardhat unpause --network gethDev"
+unpauseCmd="yarn hardhat unpause --network gethDev"
 echo "Running $unpauseCmd"
 eval $unpauseCmd
-controllerAddress=$(npx hardhat print-contract-address --contract Controller --network gethDev)
+controllerAddress=$(yarn hardhat print-contract-address --contract Controller --network gethDev)
 echo "Controller address: $controllerAddress"
 echo $controllerAddress > $gethRoot/controllerAddress
-migrateArbitrumLPTMockCmd="npx hardhat deploy --tags ARBITRUM_LPT_DUMMIES --network gethDev"
+migrateArbitrumLPTMockCmd="yarn hardhat deploy --tags ARBITRUM_LPT_DUMMIES --network gethDev"
 echo "Running $migrateArbitrumLPTMockCmd"
 eval $migrateArbitrumLPTMockCmd
 cd $OPWD
